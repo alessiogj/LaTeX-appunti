@@ -263,7 +263,7 @@
 \tableofcontents
 \chapter{Transazioni}
 \section{Tecnologie per le basi di dati}
-Un DBMS (\textit{Dasabase Management System}) o sistema di gestione dei basi 
+Un DBMS (\textit{Database Management System}) o sistema di gestione dei basi 
 di dati, è un sistema software in grado di gestire collezioni di dati che 
 siano, grandi, condivise e persistenti, assicurando la loro affidabilità 
 e privatezza.
@@ -276,7 +276,7 @@ Una base di dati è quindi di una collezione di dati gestita da un DBMS.
 \begin{figure}[H]
     \centering
     \includegraphics[width=15cm]{img/architetturaDBMS.jpeg}
-    \caption{Tecnoloigia dei DBMS}
+    \caption{Tecnologia dei DBMS}
     \label{fig:tec_DBMS}
   \end{figure}
 Un DBMS basato sul modello relazionale è nella maggior parte dei casi 
@@ -829,17 +829,17 @@ vincolato come segue (\textit{per la radice non vale il minimo}):
 \subsubsection{Esempio fan-out 4}
 \begin{figure}[H]
   \begin{center}
-    \scalebox{0.8}{
+    \scalebox{0.7}{
      \begin{tikzpicture}
         % 
-        \btreeinodeone{root}{L};
-        \xyshift{-40mm}{-20mm}{\btreeinodetwo{n1}{D}{F}};
-        \xyshift{40mm}{-20mm}{\btreeinodeone{n2}{D}};
-        \xyshift{-70mm}{-40mm}{\btreeinodetwo{m1}{D}{F}};
-        \xyshift{-40mm}{-40mm}{\btreeinodetwo{m2}{D}{F}};
-        \xyshift{-10mm}{-40mm}{\btreeinodetwo{m3}{D}{F}};
-        \xyshift{20mm}{-40mm}{\btreeinodetwo{m4}{D}{F}};
-        \xyshift{60mm}{-40mm}{\btreeinodetwo{m5}{D}{F}};
+        \btreeinodeone{root}{R};
+        \xyshift{-40mm}{-20mm}{\btreeinodetwo{n1}{L}{P}};
+        \xyshift{40mm}{-20mm}{\btreeinodeone{n2}{X}};
+        \xyshift{-90mm}{-40mm}{\btreeinodefour{m1}{A}{B}{C}{D}};
+        \xyshift{-40mm}{-40mm}{\btreeinodefour{m2}{L}{M}{N}{O}};
+        \xyshift{0mm}{-40mm}{\btreeinodetwo{m3}{P}{Q}};
+        \xyshift{40mm}{-40mm}{\btreeinodefour{m4}{R}{S}{T}{V}};
+        \xyshift{80mm}{-40mm}{\btreeinodetwo{m5}{X}{Z}};
         \btreelinknorth{root}{n1}
         \btreelinknorth{root}{n2}
         \foreach \x in {1,2,...,3} { \btreelink{n1-\x}{m\x}}
@@ -1521,7 +1521,7 @@ allora bisogna leggere una volta $\mathcal{R}$ e $\texttt{NR}(\mathcal{R})$ volt
 ovvero tante vole quante sono le tuple della relazione esterna.
 Per un totale di 
 \[
-  \texttt{NR}(\mathcal{R}) + \texttt{NR}(\mathcal{R}) \cdot \texttt{NP}(\mathcal{S})
+  \texttt{NP}(\mathcal{R}) + \texttt{NR}(\mathcal{R}) \cdot \texttt{NP}(\mathcal{S})
 \]
 Se è possibile allocare $\texttt{NP}(\mathcal{S})$ buffer per la relazione interna il costo si riduce a 
 $\texttt{NP}(\mathcal{R}) + \texttt{NP}(\mathcal{S})$.

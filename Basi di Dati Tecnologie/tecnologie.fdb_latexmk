@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1684159753 "/Users/alessio/Code/LaTeX/Basi di Dati Tecnologie/tecnologie.tex" "tecnologie.pdf" "tecnologie" 1684159755
-  "/Users/alessio/Code/LaTeX/Basi di Dati Tecnologie/tecnologie.tex" 1684159753 77607 3afca70c0147b621c9bd4f9c45d05ed3 ""
+["pdflatex"] 1685301796 "/Users/alessio/Code/LaTeX/Basi di Dati Tecnologie/tecnologie.tex" "tecnologie.pdf" "tecnologie" 1685301798
+  "/Users/alessio/Code/LaTeX/Basi di Dati Tecnologie/tecnologie.tex" 1685301796 77625 e5e4e7e46bde9fce4d13b8c6b93190de ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm" 1136768653 1536 02c06700a42be0f5a28664c7273f82e7 ""
@@ -315,10 +315,10 @@
   "img/gestoriDBMS.jpeg" 1683751574 164587 5758403804e8e00c76700a09d615aef7 ""
   "img/modelloAffidabilita.jpeg" 1683751574 111921 6bb5fd54709c328b053cfa2ce8504624 ""
   "img/z-way-merge-sort.png" 1684158843 126904 f899576c9158c1ece39499c81a0f4076 ""
-  "tecnologie.aux" 1684159755 15189 daa5886ad54cb1293febfaeaca508d39 "pdflatex"
-  "tecnologie.out" 1684159755 10103 642feafc3e9455d35761cf135dcb2ff9 "pdflatex"
-  "tecnologie.tex" 1684159753 77607 3afca70c0147b621c9bd4f9c45d05ed3 ""
-  "tecnologie.toc" 1684159755 7643 c409eec7ae2313456acfe9cda335d2f0 "pdflatex"
+  "tecnologie.aux" 1685301798 15187 98de89d75cd2e3d136a503bf75e338f4 "pdflatex"
+  "tecnologie.out" 1685301798 10103 642feafc3e9455d35761cf135dcb2ff9 "pdflatex"
+  "tecnologie.tex" 1685301796 77625 e5e4e7e46bde9fce4d13b8c6b93190de ""
+  "tecnologie.toc" 1685301798 7643 c409eec7ae2313456acfe9cda335d2f0 "pdflatex"
   (generated)
   "tecnologie.aux"
   "tecnologie.log"
