@@ -143,7 +143,7 @@ non devono necessariamente essere sempre attivi, e cambiano indirizzo IP.
 \subsection{Socket}
 Il socket è una tupla che identifica il flusso tra due
 applicazioni su host anche molto distanti tra loro. Esso 
-è composto da \textbf{Sourece address}, \textbf{Destination Address},
+è composto da \textbf{Source address}, \textbf{Destination Address},
 \textbf{Source Port}, \textbf{Destination Port}.
 
 Per Host intendiamo un sistema di elaborazione che ospita
@@ -154,7 +154,7 @@ applicazioni che utilizzano gli utenti.
 L'applicazione di rete è l'interazione di diversi processi, i processi
 sono programmi (\textit{sequenza di istruzioni}) in esecuzione.
 Avere due host su internet fa si che essi debbano avere un indirizzo IP che li
-identifichi e per comunicare si scambiano pacchetti per comunicare. Ai due host potrebbere
+identifichi e per comunicare si scambiano pacchetti per comunicare. Ai due host potrebbero
 corrispondere più host e perciò a livello di trasporto viene istituito anche 
 un ulteriore valore chiamato porta.
 
@@ -164,11 +164,11 @@ svolge solo la funzione di indirizzamento delle applicazioni (\textit{porte}).
 
 Permette di costruire applicazioni con sole due primitive \textbf{send} e 
 \textbf{recive}.
-A livello IP non sono sicuro che il pacchetto arrivi effetivamente a 
+A livello IP non sono sicuro che il pacchetto arrivi effettivamente a 
 destinazione, è infatti utilizzato per il supporto di transazioni semplici tra applicativi
-e per applicazioni multimendiali.
+e per applicazioni multimediali.
 \subsection{Transport Control Protocol}
-I pacchetti TCP contiene un header più ricco perchè si tratta di un protocollo
+I pacchetti TCP contiene un header più ricco perché si tratta di un protocollo
 orientato alla connessione dove la perdita di pacchetti implica il rinvio dei pacchetti persi.
 Il protocollo TCP fornisce affidabilità e consegna ordinata.
 L'header include:
@@ -178,7 +178,7 @@ L'header include:
   \item Sequence number (\textit{32 bit}): numero di sequenza del primo byte del payload.
   \item Acknowledge Number (\textit{32 bit}): numero di sequenza del prossimo byte che si intende 
   ricevere (ha la validità di un segmento ACK).
-  \item Offest (\textit{4 bit}): lunghezza dell'header TCP, in multipli di 32 bit.
+  \item Offset (\textit{4 bit}): lunghezza dell'header TCP, in multipli di 32 bit.
   \item Reserved (\textit{6 bit}): riservato per usi futuri
   \item Window (\textit{16 bit}) ampiezza della finestra di ricezione (comunicato
   dalla destinazione alla sorgente).
@@ -215,7 +215,7 @@ Il TCP è un protocollo \textbf{connection oriented}, ciò significa
 che prima di iniziare a trasferire i dati ci si deve essere 
 una connessione tra due end-system.
 
-L'instaturazione della connessione avviene secondo la procedura 
+L'instaurazione della connessione avviene secondo la procedura 
 "three-way handshake"
 \begin{itemize}
   \item la stazione che richiede la connessione (A) invia un segmento SYN.
@@ -227,14 +227,14 @@ L'instaturazione della connessione avviene secondo la procedura
 Poiché la connessione è bidirezionale, la terminazione deve avvenire in entrambe le direzioni.
 \begin{itemize}
   \item la stazione che non ha più dati da trasmettere e decide
-  di chiudere la connessione invia un segmento FIN (semgneto con il campo FIN a 1 e il campo dati vuoto).
+  di chiudere la connessione invia un segmento FIN (segmento con il campo FIN a 1 e il campo dati vuoto).
   \item la stazione che riceve il segmento FIN invia un ACK e indica all'applicazione che la comunicazione 
   è stata chiusa nella direzione entrante.
   \item Per chiudere completamente la connessione, la procedura 
   di half close deve avvenire anche nell'altra direzione.
 \end{itemize}
 \subsubsection{Stima del Round Trip Time}
-Poichè l'RTT può variare anche molto in base alle condizioni della rete, 
+Poiché l'RTT può variare anche molto in base alle condizioni della rete, 
 il valore di RTT (SRTT Smoothed RTT) utilizzato per il calcolo di RTO risulta una stima del valor medio 
 di RTT sperimentato dai diversi segmenti.
 \[
@@ -245,7 +245,7 @@ Dove:
   \item $RTT_{istantaneo}$: misura di RTT sull'ultimo segmento.
   \item $RTT_{precedente}$: stima precedente del valore medio di RTT.
   \item $SRTT_{attuale}$: stima attuale del valore medio di RTT.
-  \item $\alpha$: coefficientedi peso compreso tra zero e uno.
+  \item $\alpha$: coefficienti e peso compreso tra zero e uno.
 \end{itemize}
 \subsubsection{Stima del Retrasmition Time Out}
 \[
@@ -262,7 +262,7 @@ due operazioni, il routing e il forwarding.
 
 Il routing è il processo di scoperta del cammino da una sorgente ad ogni destinazione
 nella rete. Un protocollo di routing gestisce una tabella di routing nei router, la tabella
-indica, per ongi destinazione, qual è l'interfaccia di uscita su cui inviare il pacchetto.
+indica, per ogni destinazione, qual è l'interfaccia di uscita su cui inviare il pacchetto.
 Gli algoritmi utilizzati per risolvere tale problema sono:
 \begin{itemize}
   \item Distance Vector: periodicamente ogni nodo invia ai propri vicini il
@@ -274,7 +274,7 @@ Gli algoritmi utilizzati per risolvere tale problema sono:
 Il forwarding consiste nel scegliere l'interfaccia
 di uscita adatta sulla quale incanalare il pacchetto. 
 \section{Livello di Rete}
-\subsection{Gerarichia degli indirizzi IP}
+\subsection{Gerarchia degli indirizzi IP}
 Gli indirizzi IP sono divisi in due parti:
 \begin{itemize}
   \item Un prefisso: identifica la rete fisica a cui l'host è connesso, 
@@ -297,7 +297,7 @@ l'utilizzo di indirizzi di classe A e B in modo da poter avere un numero suffici
 per eventuali espansioni. La conseguenza fu il sottoutilizzo di indirizzi all'interno di ogni classe.
 \subsection{Notazione Classless-Domain Routing}
 L'utilizzo di maschere per specificare la dimensione del prefisso viene fatta per 
-questioni di efficienza, poichè le operazioni di AND bit a bit sono molto veloci in hardware.
+questioni di efficienza, poiché le operazioni di AND bit a bit sono molto veloci in hardware.
 
 Tuttavia, per facilitare la gestione da parte degli utenti, si utilizza una
 notazione più semplice e diretta, specificando la dimensione del prefisso.
@@ -323,7 +323,7 @@ Le principali funzioni svolte dal livello 2 sono:
   \item Framing: delimitazione dei messaggi (\textit{frame}) come gruppi 
   di bit sul canale fisico.
   \item Rilevazione/gestione errori: controlla se il frame contiene errori ed 
-  eventualemente gestisce il recupero.
+  eventualmente gestisce il recupero.
   \item Metodo di accesso al canale.
   \item Controllo di flusso: gestisce la velocità della trasmissione.
 \end{itemize}
@@ -359,21 +359,22 @@ tecnica di assegnazione:
 \end{itemize}
 
 \chapter{Dal Web ai Webservices}
-\section{HTTP/HTTPS}
-I protocolli HTTP e HTTPS è nato per la fruizione dei contenuti in rete (\textit{World Wide Web}). 
+\section{$\texttt{HTTP/HTTPS}$}
+I protocolli \verb|HTTP| e \verb|HTTPS| è nato per la fruizione dei contenuti in rete (\textit{World Wide Web}). 
 Oggi è utilizzato anche per l'invocazione di funzionalità remote, i \textbf{webservice}.
 
-Il client si chiama "web browser" (\textit{o semplicemente "browser"}) e la 
+Il client si chiama "web browser" (\textit{o semplicemente "browser"}), 
+il server si chiama "we server" e la 
 comunicazione avviene sul protocollo TCP sulla rete internet.
 
 L'apertura della comunicazione avviene attraverso gli attori \textit{client} e 
-\textit{server} identificati rispettivamente da indirizzo ip e porta (\textit{l'HTTP 
-utilizza la porta $80$, l'HTTPS utilizza la porta $443$}). 
-L'HTTP viaggia sul protocollo TCP e la prima cosa da eseguire è l'apertura della
+\textit{server} identificati rispettivamente da indirizzo ip e porta (\textit{l'$\texttt{HTTP}$ 
+utilizza la porta $80$, l'$\texttt{HTTPS}$ utilizza la porta $443$}). 
+L'\verb|HTTP| viaggia sul protocollo \verb|TCP| e la prima cosa da eseguire è l'apertura della
 connessione (\textit{attraverso il tree way handshake}). 
 Una volta effettuata l'apertura della connessione si identifica da soli richieste seguite da 
 risposte.
-Nel caso di HTTPS avviene l'autenticazione del server e la negoziazione 
+Nel caso di \verb|HTTPS| avviene l'autenticazione del server e la negoziazione 
 di una chiave di cifratura.
 
 Si tratta di un protocollo testuale, leggibili.
@@ -390,7 +391,7 @@ Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
 Keep-Alive: 300
 Connection: keep-alive
 \end{lstlisting}
-\subsection{Esempio di risposta}
+\subsubsection{Esempio di risposta}
 \begin{lstlisting}[basicstyle=\small]
 HTTP/1.1 200 OK
 Date: Mon, 17 May 2022 16:10:48 GMT
@@ -405,31 +406,79 @@ Content-Type: text/html
   ... 
 </html>
 \end{lstlisting}
-\section{Metodi di richiesta HTTP}
+\subsection{Metodi di richiesta $\texttt{HTTP}$}
 \begin{itemize}
-  \item GET: imposta i parametri nella URL, con il limite di $2048$ caratteri.
-  \item POST: imposta i dati nel corpo della richiesta, dove non c'è limite di 
+  \item \verb|GET|: imposta i parametri nella \verb|URL|, con il limite di $2048$ caratteri.
+  \item \verb|POST|: imposta i dati nel corpo della richiesta, dove non c'è limite di 
   caratteri.
-  \item PUT 
-  \item DELETE 
-  \item HEAD 
-  \item CONNECTION 
-  \item OPTIONS 
-  \item TRACE 
-  \item PATCH 
+  \item \verb|PUT| 
+  \item \verb|DELETE| 
+  \item \verb|HEAD| 
+  \item \verb|CONNECTION| 
+  \item \verb|OPTIONS| 
+  \item \verb|TRACE| 
+  \item \verb|PATCH| 
 \end{itemize}
-\section{HTTPS}
-I messaggi che passano nella connessione TCP sono gli stessi dell'HTTP ma vengono 
+\subsection{Il protocollo $\texttt{HTTPS}$}
+I messaggi che passano nella connessione \verb|TCP| sono gli stessi dell'\verb|HTTP| ma vengono 
 sottoposti a cifratura dei dati in transito e autenticazione del server mediante 
 certificato digitale.
 
 Il server lavora sulla porta $443$ invece che $80$.
+\subsection{Uniform Resource Locator $\texttt{URL}$}
+Detto anche Universal Resource Locator, si tratta di una stringa che 
+permette di identificare in maniera univoca una risorsa \verb|HTTP| 
+in qualsiasi parte della rete mondiale.
+\[
+https://www.univr.it/servizi/studenti/carriera
+\]
+La struttura:
+\begin{itemize}
+  \item Il protocollo utilizzato a livello applicazione, ovvero il protocollo di livello di trasporto 
+  più la porta utilizzata;
+  \item Nome dell'host (\textit{o indirizzo} \verb|IP|) che eroga tale risorsa.
+  \item Nome della risorsa con il suo percorso logico completo.
+\end{itemize}
+La porta può essere indicata esplicitamente se non è quella standard.
+\section{Common Gateway Interface ($\texttt{CGI}$)}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=12cm]{src/CGI.png}
+\end{figure}
+\subsection{$\texttt{CGI}$ e web dinamico}
+Il risultato della richiesta del browser non è più un documento statico,
+il programma \verb|CGI| viene eseguito lato server e il browser web diventa 
+il client di molte applicazioni di rete, come posta elettronica, Wiki e Content Management Systems.
+\subsection{Web e posta elettronica}
+Quando viene eseguita una richiesta \verb|GET| da parte del client web verso il 
+server il server effettua internamente una richiesta \verb|SMTP| in direzione del server di posta.
+Il server di posta genererà la \verb|SMTP response| e in base a tale risposta, il server web 
+genererà una \verb|HTTP response|.  
+\section{Web Socket}
+Si tratta di un un protocollo di comunicazione alternativo a \verb|HTTP/HTTPS|, ammette
+la comunicazione simmetrica tra i processi interagenti. Essa nasce da 
+\verb|HTTP/HTTPS| attraverso una operazione di \textbf{protocol upgrade}, da quel 
+momento i processi possono prendere l'iniziativa per mandare dei dati dall'altra 
+parte. È utilizzato per il refresh asincrono di una pagina web attraverso push 
+di una nuova pagina da parte del server.
+\subsection{Protocol upgrade}
+I messaggi contengono due nuove stringhe che identificano l'upgrade del 
+protocollo, come segue:
+\begin{verbatim}
+  GET / HTTP/1.1
+  Host: server.example.com
+  Upgrade: websocket
+  Protocol: upgrade
+  Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ== 
+  Origin: http://example.com 
+  Sec-WebSocket-Version: 13
+\end{verbatim}
 \section{Service-oriented architecture}
 Le tradizionali applicazioni "monolitiche" sono costituite da l'interfaccia utente che 
 richiama delle funzionalità fornite da una serie di \textbf{librerie} linkate 
 in un unico programma che "gira" sulla macchina dell'utente.
 
-Le SOA hanno l'obiettivo di realizzare applicazioni complesse attraverso la 
+Le \verb|SOA| hanno l'obiettivo di realizzare applicazioni complesse attraverso la 
 \textbf{combinazione di diversi programmi attraverso la rete}.
 \begin{itemize}
   \item L'interfaccia utente più qualche funzionalità di base "girano" sull'host dell'utente.
@@ -445,7 +494,99 @@ Le SOA hanno l'obiettivo di realizzare applicazioni complesse attraverso la
   \item Eliminazione della pirateria;
   \item L’infrastruttura di rete diventa un elemento essenziale;
   \item Se “manca la rete” l’applicazione non funziona.
+\end{itemize} 
+\subsection{$\texttt{SOA}$: tecnologie}
+Il servizio, ovvero la chiamata a funzione (\textit{per gli ambienti 
+orientati agli oggetti}), è il cuore delle \verb|SOA|.
+
+I generici componenti di una funzione sono:
+\begin{itemize}
+  \item Nome: descrizione della funzione;
+  \item Tipo e numero di parametri in ingresso;
+  \item Tipo di valore restituito;
+  \item Implementazione.
 \end{itemize}
+L'\textbf{interfaccia} è la descrizione di nome, parametri e valore di ritorno delle funzioni erogate da 
+una libreria che è locale in caso di applicazioni tradizionali oppure 
+remota nel caso delle \verb|SOA|.
+
+Le Application Program Interface, ovvero le \textbf{$\texttt{API}$}, sono l'insieme 
+delle funzioni/metodi esposte da una certa libreria locale o da un server 
+remoto.
+Il cuore di \verb|SOA| è la \textbf{chiamata di funzione remota} perfettamente conforme al 
+modello client/server.
+\subsection{Chiamata di funzione remota}
+Il componente server espone una \verb|API| che descrive una serie di 
+funzioni che il componente client (\textit{che non è un web browser})
+può invocare.
+
+L'implementazione delle funzioni è presente nel server, il codice che chiama 
+la funzione sul client e quello che implementa la funzione sul server 
+possono essere scritti con linguaggi differenti e girare su architetture di calcolo molto
+differenti, ma è importante che \textbf{entrambe le funzioni implementano la stessa 
+interfaccia}.
+
+La funzione chiamata dal client apparentemente realizza la funzionalità;
+in realtà codifica i parametri per essere trasmessi in rete e decodifica il 
+valore di ritorno, tale funzione si chiama \textbf{stub}.
+
+Sul server esiste un componente chiamato \textbf{skeleton} che decodifica 
+i parametri di input, li passa alla funzione che contiene l'implementazione 
+vera e propria (\textit{business logic}), prende il risultato, lo codifica e spedisce 
+al client.
+
+Il meccanismo utilizza il protocollo di rete per il trasporto dei dati 
+codificati e tale codifica a volte si definisce come serializzazione.
+\subsection{Teconologie per la chiamata di funzione remota}
+\begin{itemize}
+  \item Remote procedure call (\verb|RPC|): \verb|C| su \verb|TCP|;
+  \item Java Remote Method Invocation (\verb|JAVA RMI|): \verb|Java| su \verb|TCP|;
+  \item Common Object Request Broker Architecture (\verb|CORBA|):
+  standard indipendente dai linguaggi di programmazione e dal protocollo di livello trasporto;
+  \item \textbf{Webservice}: utilizza l'\verb|HTTP/HTTPS| come protocollo 
+  di trasporto degli elementi della funzione, e il formato dei dati puù utilizzata 
+  è la metodologia \verb|REST|.
+\end{itemize}
+\subsection{Webservice basati su $\texttt{REST}$}
+Viene eseguito un mapping del nome della funzione sulla \verb|URL|.
+Il passaggio di parametri sulla \verb|URL| utilizza i metodi \verb|GET| e 
+\verb|DELETE| oppure dopo l'header attraverso \verb|POST| e \verb|PUT|.
+
+La scelta del metodo \verb|HTTP| in funzione della semantica della funzione, 
+avviene seguendo tali criteri:
+\begin{itemize}
+  \item \verb|POST|: usato per funzioni che creano un nuovo oggetto sul server;
+  \item \verb|PUT|: funzioni che aggiornano un oggetto esistente sul server;
+  \item \verb|GET|: funzioni che recuperano info di un oggetto esistente sul server;
+  \item \verb|DELETE|: funzioni che distruggono un oggetto esistente sul server.
+\end{itemize}
+Il valore di ritorno nel corpo della risposta avviene sostituendo l'\verb|HTML| con 
+testo puro o oggetti in formato \verb|JSON|.
+\subsection{Webservice: vantaggi}
+L'infrastruttura Internet è già predisposta all'uso di \verb|HTTP/HTTPS|.
+L'uso di contenuti testuali nelle transazioni facilita il debugging delle applicazioni 
+\verb|SOA|.
+\section{Cloud computing}
+Per cloud computing si intende un gruppo di host in rete che forniscono 
+servizi di calcolo e memorizzazione senza essere indirizzati o gestiti idividualmente 
+dagli utenti.
+
+L'intero insieme di hardware e software è gestito 
+dal fornitore del cloud che si fa pagare con una politica a consumo oppure forfettaria.
+\subsection{Cloud: servizi offerti}
+\begin{itemize}
+  \item On-site: la gestione dell'hardware viene fatta dall'utente;
+  \item Infrastructure as a Service (\verb|IaaS|):
+  affitto una macchina virtuale su cui installo il mio sistema operativo 
+  e sopra tutte le mie applicazioni;
+  \item Platform as a Service (\verb|PaaS|): affitto l'uso di un ambiente in cui c'è 
+  già il sistema operativo e posso installare le mie applicazioni;
+  \item Software as a Service (\verb|SaaS|): affitto l'uso di applicazioni già installate.
+  \item Function as a Service (\verb|FaaS|): possibilità di creare direttamente delle funzioni.
+\end{itemize}
+
+\chapter{Programmazione di rete client/server 
+mediante interfaccia socket}
 \section{Applicazioni client server}
 I client e i server possono essere molteplici, questo protocollo 
 è contraddistinto dal client che esegue il primo passo.
@@ -460,39 +601,8 @@ socket sia del client sia del server hanno indirizzo IP $127.0.0.1$ chiamata
 
 Le interfacce create da parte del client e del server devono essere 
 create su porte diverse e il client deve conoscere la porta del server.
-\subsection{Protocollo UDP}
-Il sistema operativo mette a disposizione un'API per agire sulla 
-rete, utilizzando i protocolli a livello di trasporto.
-\subsubsection{Client}
-Il client esegue delle richieste al server attraverso 
-queste modalità:
-\begin{itemize}
-  \item Inizio;
-  \item Dichiarazione delle variabili tra cui la variabile socket;
-  \item Inizializzazione dell’interfaccia socket sulla porta $20000$;
-  \item Invia tramite UDP il messaggio "Ciao sono il client!" al destinatario avente indirizzo IP "127.0.0.1" e porta 35000;
-  \item Mettiti in attesa dell’arrivo di un messaggio UDP;
-  \item Scrivi "\verb|[CLIENT]| Ho ricevuto un messaggio da";
-  \item Scrivi host/porta del mittente e contenuto ricevuto.
-  \item Fine.
-\end{itemize}
-
-\subsubsection{Server}
-Il server attende delle richieste da parte del client seguendo 
-questi passaggi:
-\begin{itemize}
-  \item Inizio;
-  \item Dichiarazione delle variabili tra cui la variabile socket;
-  \item Inizializzazione dell’interfaccia socket sulla porta $35000$;
-  \item Scrivi "\verb|[SERVER]| Sono in attesa di richieste da qualche client";
-  \item Mettiti in attesa dell’arrivo di un messaggio UDP;
-  \item Scrivi "\verb|[SERVER]| Ho ricevuto un messaggio da";
-  \item Scrivi host/porta del mittente e contenuto ricevuto;
-  \item Invia a tale mittente tramite UDP il messaggio "Sono il server: ho ricevuto correttamente il tuo messaggio!";
-  \item Fine.
-\end{itemize}
-\subsection{Come scrivere applicazioni di rete}
-\subsubsection{Creazione dell'interfaccia socket}
+\section{Come scrivere applicazioni di rete}
+\subsection{Creazione dell'interfaccia socket}
 Tutti i sistemi operativi forniscono un'interfaccia software per 
 costruire questi programmi con un qualsiasi linguaggio di programmazione.
 Questa interfaccia si chiama \textbf{socket}.
@@ -500,9 +610,9 @@ Questa interfaccia si chiama \textbf{socket}.
 Il programma prima di usare la rete deve creare un oggetto di tipo socket definito 
 da tre parametri:
 \begin{itemize}
-  \item Indirizzo IP locale;
+  \item Indirizzo \verb|IP| locale;
   \item Porta locale (\textit{si aggancia al processo in esecuzione});
-  \item Modalità di trasmissione: UDP oppure TCP.
+  \item Modalità di trasmissione: \verb|UDP| oppure \verb|TCP|.
 \end{itemize}
 
 Il server deve decidere esplicitamente il numero di porta locale affinché i 
@@ -512,24 +622,41 @@ socket su queste porte deve avere i privilegi di root.
 
 Il programma \textbf{client} può deciderlo esplicitamente oppure lasciarlo decidere 
 al proprio sistema operativo.
-\subsubsection{La trasmissione/ricezione}
-Per tale fase serve conoscere ulteriori parametri:
-\begin{itemize}
-  \item IP del proprio interlocutore;
+\subsection{Comunicazione mediante interfaccia socket}
+La comunicazione tra i due processi avviene conoscendo due ulteriori parametri:
+\begin{itemize}  
+  \item \verb|IP| del proprio interlocutore;
   \item Porta del proprio interlocutore.
 \end{itemize}
-Nel caso UDP:
+Quindi il client rende disponibile il proprio \verb|IP| e la propria 
+porta solamente 
+durante la connessione, in modo che il server possa comunicare con 
+tale client per soddisfare le richieste.
+\subsection{Applicazioni orientate ai datagrammi: $\texttt{UDP}$}
+Ogni pacchetto scambiato tra gli host è \textbf{logicamente indipendente}
+dai precedenti e successivi.
+In tal caso, le perdite di pacchetti non vengono compensate in automatico 
+nè dalla rete nè dal sistema operativo. Per questo motivo il protocollo \verb|UDP|
+è più leggero del \verb|TCP| come uso di risorse di calcolo in rete, ma 
+il tipo di applicazione deve essere compatibile con il tipo di comportamento.
+
+La trasmissione in questo caso segue 2 punti:
 \begin{itemize}
   \item Chiamata a funzione per trasmettere;
   \item Chiamata a funzione per ricevere.
 \end{itemize}
-\section{Web Socket}
-Si tratta di un un protocollo di comunicazione alternativo a HTTP/HTTPS, ammette
-la comunicazione simmetrica tra i processi interagenti. Essa nasce da 
-HTTP/HTTPS attraverso una operazione di \textbf{protocol upgrade}, da quel 
-momento i processi possono prendere l'iniziativa per mandare dei dati dall'altra 
-parte. È utilizzato per il refresh asincrono di una pagina web attraverso push 
-di una nuova pagina da parte del server.
+\subsection{Applicazioni orientate alla trasmissione $\texttt{TCP}$}
+In questo caso l'oggetto socket si dedica alla numerazione dei pacchetti 
+appartenenti alla stessa connessione per rilevare eventuali pacchetti persi 
+e per poterli ritrasmettere.
+
+La trasmissione in questo caso segue 4 punti:
+\begin{itemize}
+  \item Chiamata a funzione per aprire la connessione;
+  \item Chiamata a funzione per trasmettere;
+  \item Chiamata a funzione per ricevere;
+  \item Chiamata a funzione per chiudere la connessione. 
+\end{itemize}
 \chapter{Sicurezza delle reti}
 Protegge significa garantire: confidenzialità, integrità, disponibilità
 l'autenticità e la tracciabilità.
@@ -590,6 +717,9 @@ unica, le risposte cambiano nel tempo.
 
 Le risorse da proteggere sono sistemi composti da sotto-sistemi. La sicurezza dipende 
 non solo da algoritmi o protocolli, ma anche dagli utenti.
+%
+%TODO
+%
 \chapter{Crittografia}
 \section{Introduzione}
 Si tratta di una scienza che si occupa di proteggere l'informazione rendendola 
@@ -686,13 +816,37 @@ con buona probabilità quale sia la lettera corrispondente.
 \subsubsection{Cifrari a blocchi}
 Fa parte delle tecniche di cifratura simmetrica:
 \begin{itemize}
-  \item Usati in molti protocolli sicuri di Internet, compreso PGP (posta elettronica),
-  SSL (connessione TCP) e IPSec (trasmissione a livello di rete).
+  \item Usati in molti protocolli sicuri di Internet, compreso \verb|PGP| (posta elettronica),
+  \verb|SSL| (connessione \verb|TCP|) e \verb|IPSec| (trasmissione a livello di rete).
   \item Chiamati anche cifrari a flusso.
 \end{itemize}
 Dati $k$ bit, i possibili $2^k$ ingressi vengono permutati, esempio $k=3$.
 
+Le permutazioni possono essere combinate tra loro per creare schemi più complessi.
+\section{Crittografia a chiave asimmetrica}
+Negli algoritmi simmetrici la chiave è la stessa in cifratura e decifratura, dunque
+deve essere segreta. Esiste quindi il problema della distribuzione delle chiavi.
+Serve quindi un canale sicuro di comunicazione per trasmettere la chiave.
 
+Nel 1976 Diffie e Hellman propongono uno schema che supera questa limitazione,
+ovvero la crittografia a chiave pubblica o asimmetrica.
+\subsection{Chiave pubblica e chiave privata}
+Nella crittografia a simmetrica ogni utente ha una coppia di chiavi, costruita 
+da una chiave pubblica e una chiave privata.
+
+La chiave pubblica viene resa nota, quella privata deve rimanere segreta.
+
+Il dato viene cifrato con la chiave pubblica del destinatario, che potrà decifrarlo 
+con la propria chiave privata.
+\subsubsection{Vantaggi}
+In questo caso non è più necessario incontrarsi per scambiare chiavi. Inoltre
+,la stessa chiave pubblica può essere usata da più utenti.
+\section{Algoritmo $\texttt{RSA}$}
+\verb|RSA|, così chiamato dalle iniziali dei suoi inventori (\textit{Rivest,
+Shamir, Aldeman}), è sicuramente il più noto algoritmo crittografico asimmetrico,
+si basa sulla difficoltà di scomporre un numero in fattori primi.
+
+La chiave \verb|RSA| ha di solito dimensioni di almeno $2^{10}$ bit.
 
 
 

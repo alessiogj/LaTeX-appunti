@@ -1,50 +1,18 @@
-# Ignora i file generati dalla compilazione LaTeX
-
-# Ignora tutti i file generati tranne il PDF finale e il file LaTeX
-
-
-# Ignora i file di log generati
-*.log
-
-# Ignora i file ausiliari generati
-*.aux
-*.bbl
-*.blg
-*.brf
-*.out
-*.snm
-*.toc
-*.nav
-*.synctex.gz
-*.fdb_latexmk
-*.fls
-*.synctex(busy)
-*.gz
-
-# Ignora la cartella di output LaTeX
-**/_build/
-
-# Ignora i file generati da VSCode
-
-# Ignora la cartella di output di VSCode
+# Ignora la cartella .vscode ricorsivamente
 **/.vscode/
 
-# Ignora i file di configurazione di VSCode
-**/*.code-workspace
+# Ignora i file generati dalla compilazione LaTeX (esclusi .tex e .pdf)
+**/*.aux
+**/*.log
+**/*.out
+**/*.synctex.gz
+**/*.toc
 
-# Ignora i file di backup di VSCode
-**/*~
+# Ignora il file .DS_Store
+**/.DS_Store
 
-# Ignora i file generati dal debugger di VSCode
-**/*.launch
+# Mantieni ricorsivamente la cartella /src
+/src/
 
-# Ignora i file di configurazione degli utenti di VSCode
-**/*.json.user
-
-# Ignora la cache di VSCode
-**/.vscode-cache/
-
-# Mantieni i file .tex e .pdf ricorsivamente
-!**/*.pdf
-!**/*.pdf
-!**/src/
+# Mantieni ricorsivamente la cartella /img
+/img/
